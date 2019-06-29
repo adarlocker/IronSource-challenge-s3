@@ -5,6 +5,7 @@
 # Getting started:
 * run npm install
 * run npm start
+* run npm start-stable (not tracking changes)
 
 # Link to Postman collection including API calls:
 * https://www.getpostman.com/collections/f1a33bec8d08ce1c862b
