@@ -15,7 +15,7 @@ function deleteController(req, res, next) {
 
         // update metadata file
         else {
-            const metadataPath = `${path}/metadata.txt`;
+            const metadataPath = `${path}/metadata.json`;
             const fileMetadata = fs.readFileSync(metadataPath);
             var metadata = JSON.parse(fileMetadata);
             metadata.deletedAt = Date.now();

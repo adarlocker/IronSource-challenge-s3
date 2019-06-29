@@ -4,11 +4,11 @@ function downloadWithToken(req, res, next) {
     try {
         const { path, metadataIsRequested, fileConfig } = res.locals;
         const { fileName } = fileConfig;
-        const fileMetadata = fs.readFileSync(`${path}/metadata.txt`);
+        const fileMetadata = fs.readFileSync(`${path}/metadata.json`);
         const metadata = JSON.parse(fileMetadata);
 
         if (metadataIsRequested) {
-            res.download(`${path}/metadata.txt`);
+            res.download(`${path}/metadata.json`);
         }
         else if (metadata.deletedAt > 0) {
             console.log('File is deleted');

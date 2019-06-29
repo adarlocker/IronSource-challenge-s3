@@ -7,7 +7,7 @@ function update(req, res, next) {
 
         const { userId } = fileConfig;
 
-        const metadataPath = `${path}/metadata.txt`;
+        const metadataPath = `${path}/metadata.json`;
         const fileMetadata = fs.readFileSync(metadataPath);
         var metadata = JSON.parse(fileMetadata);
 
@@ -33,7 +33,7 @@ function update(req, res, next) {
 
             // update files map
             const updatedFilesMap = JSON.stringify(idToFileNamesMap);
-            fs.writeFileSync('./idToFileNames.txt', updatedFilesMap);
+            fs.writeFileSync('./idToFileNames.json', updatedFilesMap);
 
             //update file updatedAt field
             metadata.updatedAt = Date.now();

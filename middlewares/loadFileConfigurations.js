@@ -9,7 +9,7 @@ function loadFileConfigurations(req, res, next) {
         const metadataIsRequested = req.query.metadata === 'true';
         const fileId = req.params.fileid || uniqueFilename('./', null, userId + fileName);
 
-        const idToFileNames = fs.readFileSync('./idToFileNames.txt');
+        const idToFileNames = fs.readFileSync('./idToFileNames.json');
         const idToFileNamesMap = JSON.parse(idToFileNames);
         const fileConfig = idToFileNamesMap[fileId];
         if (!fileConfig) {
