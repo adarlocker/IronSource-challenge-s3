@@ -19,6 +19,7 @@ function loadFileConfigurations(req, res, next) {
 
         else {
             res.locals = {
+                fileId,
                 fileConfig,
                 idToFileNamesMap,
                 metadataIsRequested,

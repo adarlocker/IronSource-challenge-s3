@@ -3,7 +3,7 @@ var fs = require('fs');
 function update(req, res, next) {
     try {
         const { fileId, path, idToFileNamesMap, fileConfig } = res.locals;
-        const { privateNewValue, userid: queryUserId } = req.query;
+        const { private: privateNewValue, userid: queryUserId } = req.query;
 
         const { userId } = fileConfig;
 

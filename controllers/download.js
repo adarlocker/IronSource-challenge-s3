@@ -3,7 +3,7 @@ var fs = require('fs');
 function download(req, res, next) {
     try {
         const { path, metadataIsRequested, fileConfig } = res.locals;
-        const { isPrivate, fileName } = fileConfig;
+        const { private: isPrivate, fileName } = fileConfig;
         const fileMetadata = fs.readFileSync(`${path}/metadata.txt`);
         const metadata = JSON.parse(fileMetadata);
 
