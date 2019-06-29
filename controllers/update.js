@@ -22,6 +22,11 @@ function update(req, res, next) {
             next();
         }
 
+        else if (privateNewValue !== '0' && privateNewValue !== 'private') {
+            console.log(`private value can be '0' or 'private' only`);
+            next();
+        }
+
         else {
             fileConfig.private = privateNewValue;
             idToFileNamesMap[fileId] = fileConfig;
