@@ -4,7 +4,7 @@
 
 # Getting started:
 * run npm install
-* run npm start (or yarn start)
+* run npm start
 
 # Link to Postman collection including API calls:
 * https://www.getpostman.com/collections/f1a33bec8d08ce1c862b
