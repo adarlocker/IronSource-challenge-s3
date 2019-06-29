@@ -5,25 +5,25 @@ function update(req, res, next) {
         const { fileId, path, idToFileNamesMap, fileConfig } = res.locals;
         const { private: privateNewValue, userid: queryUserId } = req.query;
 
-        const { userId } = fileConfig;
+        const { userId, fileName } = fileConfig;
 
         const metadataPath = `${path}/metadata.json`;
         const fileMetadata = fs.readFileSync(metadataPath);
         var metadata = JSON.parse(fileMetadata);
 
         if (metadata.deletedAt > 0) {
-            console.log('File is deleted');
+            console.log(`fileId:${fileId}, fileName:${fileName} is deleted`);
             next();
         }
 
         // userId = file's owner id
         else if (userId !== queryUserId) {
-            console.log('You are not permitted to update this file');
+            console.log(`userId ${userId} is not permitted to update fileId:${fileId}, fileName:${fileName}`);
             next();
         }
 
         else if (privateNewValue !== '0' && privateNewValue !== 'private') {
-            console.log(`private value can be '0' or 'private' only`);
+            console.log(`invalid attempt to update fileId:${fileId}, fileName:${fileName} with private value: ${privateNewValue}`);
             next();
         }
 

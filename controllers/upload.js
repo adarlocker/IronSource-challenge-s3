@@ -26,7 +26,7 @@ function upload(req, res, next) {
             updatedAt: currentTime,
         }));
 
-        res.send('file was uploaded');
+        res.sendStatus(200);
 
     } catch(e) {
         next(e);

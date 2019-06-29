@@ -13,7 +13,7 @@ function loadFileConfigurations(req, res, next) {
         const idToFileNamesMap = JSON.parse(idToFileNames);
         const fileConfig = idToFileNamesMap[fileId];
         if (!fileConfig) {
-            console.log('File doesnt exists');
+            console.log(`fileId:${fileId}, fileName:${fileName} doesnt exists for user: ${userId}`);
             next('route');
         }
 

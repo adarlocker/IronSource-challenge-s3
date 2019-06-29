@@ -9,7 +9,7 @@ function deleteController(req, res, next) {
 
         // userId = owner id
         if (userId !== queryUserId) {
-            console.log('You are not permitted to delete this file');
+            console.log(`userId ${queryUserId} is not permitted to delete this file, its owned by ${userId}`);
             next();
         }
 
