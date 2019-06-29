@@ -3,6 +3,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 
+var api = require('./routes/api');
 var app = express();
 app.set('port', 3000);
 
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
+app.use('/api', api);
 
 // catch 404
 app.use(function(req, res) {
